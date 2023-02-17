@@ -1,5 +1,5 @@
 from queue import Queue
-fromstack import Stack
+from stack import Stack
 from Palindrome import stackToReverseString, reverseStringAndRemoveNonAlpha, isPalindrome, toString
 
 def test_stackToReverse1():
