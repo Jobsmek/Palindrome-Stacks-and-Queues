@@ -15,6 +15,8 @@ while node != None:
    node = node.next
 print()
 
+
+
 # Pop 11
 popped_item = num_stack.pop()
 print('Popped:', popped_item)

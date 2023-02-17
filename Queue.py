@@ -13,11 +13,26 @@ class Queue:
         self.list.append(new_node)
     
     def dequeue(self):
+        # Check to see if list is empty, if empty: exit
+        if self.list.head.data == None:
+            sys.exit("Queue empty")
+
         # Copy data from list's head node (queue's front node)
         dequeued_item = self.list.head.data
         
         # Remove list head
         self.list.remove_after(None)
+        
+        # Return the dequeued item
+        return dequeued_item
+
+    def peek(self):
+        # Check to see if list is empty, if empty: exit
+        if self.list.head.data == None:
+            sys.exit("Queue empty")
+
+        # Copy data from list's head node (queue's front node)
+        dequeued_item = self.list.head.data
         
         # Return the dequeued item
         return dequeued_item

@@ -1,3 +1,4 @@
+import sys
 from Node import Node
 from LinkedList import LinkedList
 
@@ -13,6 +14,10 @@ class Stack:
         self.list.prepend(new_node)
     
     def pop(self):
+        # Check to see if list is empty, if empty: exit
+        if self.list.head.data == None:
+            sys.exit("Stack empty")
+
         # Copy data from list's head node (stack's top node)
         popped_item = self.list.head.data
         
@@ -20,4 +25,15 @@ class Stack:
         self.list.remove_after(None)
         
         # Return the popped item
+        return popped_item
+
+    def peek(self):
+        # Check to see if list is empty, if empty: exit
+        if self.list.head.data == None:
+            sys.exit("Stack empty")
+            
+        # Copy data from list's head node (stack's top node)
+        popped_item = self.list.head.data
+        
+        # Return the peeked item
         return popped_item
