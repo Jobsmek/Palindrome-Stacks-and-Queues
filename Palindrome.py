@@ -1,6 +1,38 @@
 from Stack import Stack
 from Queue import Queue
 
+
+def stackToReverseString(MyStack):
+   #find length of string and add it to the stack to reverse it
+   #This needs to use a stack
+
+   #  abcd
+   #  
+   newStack = Stack()
+   
+
+  
+   while MyStack.list.head.data != None:
+      i = MyStack.pop()
+      newStack.push(i)
+
+# a b c d
+# b a
+
+
+
+   skip
+
+def reverseStringAndRemoveNonAlpha(string):
+   # Remove stuff like ! space .,
+   #This needs to use a stack
+   skip
+
+def isPalindrome(string):
+   #
+   #This needs to use a stack and queue
+   skip
+
 # Stack operations
 num_stack = Stack()
 num_stack.push(45)
