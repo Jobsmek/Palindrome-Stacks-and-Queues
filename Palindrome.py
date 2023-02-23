@@ -16,33 +16,29 @@ def stackToReverseString(MyStack):
       i = MyStack.pop()
       newStack.push(i)
 
-# a b c d
-# b a
-
-
-
-   skip
-
 def reverseStringAndRemoveNonAlpha(string):
-   # Remove stuff like ! space .,
-   #This needs to use a stack
+   # Remove stuff like ! space ., using a stack
    strippedString = ""
    for i in string:  
       # Store only valid characters
       if (i >= 'A' and i <= 'Z') or (i >= 'a' and i <= 'z'):
          strippedString += i
-         
-   #now put in stack and call reverse stack
-   for i in string: 
-      newStack.push(i)
-      reversedStack = stackToReverseString(newStack)
-
+   
+   # Push the stripped string into a stack
+   newStack = Stack()
+   for character in string: 
+      newStack.push(character)
+      
+   # Reverse the stack
+   reversedStack = stackToReverseString(newStack)
    return reversedStack
 
 def isPalindrome(string):
    #
    #This needs to use a stack and queue
    skip
+
+
 
 # Stack operations
 num_stack = Stack()
