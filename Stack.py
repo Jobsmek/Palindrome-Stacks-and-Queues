@@ -21,15 +21,15 @@ class Stack:
             self.list.remove_after(None)
             return popped_item
         except AttributeError:
-            print("There is no such attribute")
+            sys.exit("There is no such attribute")
 
     def peek(self):
         # Check to see if list is empty, if empty: exit
-        if self.list.head.data == None:
-            sys.exit("Stack empty")
-            
-        # Copy data from list's head node (stack's top node)
-        popped_item = self.list.head.data
         
-        # Return the peeked item
-        return popped_item
+        # Copy data from list's head node (stack's top node)
+        try:
+            popped_item = self.list.head.data
+            return popped_item
+        except AttributeError:
+            sys.exit("There is no such attribute")
+            
