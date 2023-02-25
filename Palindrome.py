@@ -6,32 +6,41 @@ def stackToReverseString(MyStack):
    #find length of string and add it to the stack to reverse it
    #This needs to use a stack
 
-   #  abcd
-   #  
-   newStack = Stack()
    
+   # toString
+   string = ""
+   while MyStack.peek() != None:
+      i = MyStack.pop()
+      string+=i
+
+   return string
+   # Return a string
+
+def reverseStringAndRemoveNonAlpha(stringToReverse):
+   for character in stringToReverse:
+      if character.isalpha() == False:
+         print("g")
+         stringToReverse.replace(character, "")
+   # Remove stuff like ! space ., using a stack
+   # Remove Non Alpha
 
   
-   while MyStack.list.head.data != None:
-      i = MyStack.pop()
-      newStack.push(i)
 
-def reverseStringAndRemoveNonAlpha(string):
-   # Remove stuff like ! space ., using a stack
-   strippedString = ""
-   for i in string:  
-      # Store only valid characters
-      if (i >= 'A' and i <= 'Z') or (i >= 'a' and i <= 'z'):
-         strippedString += i
    
-   # Push the stripped string into a stack
-   newStack = Stack()
-   for character in string: 
-      newStack.push(character)
       
+
+   
+   # while stringToReverse.peek() != None:
+   #    character = stringToReverse.pop()
+   #    if (character >= 'A' and character <= 'Z') or (character >= 'a' and character <= 'z'):
+   #       strippedStack.push(character)
+   
    # Reverse the stack
-   reversedStack = stackToReverseString(newStack)
-   return reversedStack
+   # reversedStack = Stack()
+   # reversedStack = stackToReverseString(strippedStack)
+   print(stringToReverse)
+   return stringToReverse
+   # Return a string
 
 def isPalindrome(string):
    #
@@ -42,9 +51,9 @@ def isPalindrome(string):
 
 # Stack operations
 num_stack = Stack()
-num_stack.push(45)
-num_stack.push(56)
-num_stack.push(11)
+num_stack.push("Stressed was i ! 123 ere I saw desserts")
+#num_stack.push("stand")
+#num_stack.push("hello")
 
 # Output stack
 print('Stack after push:', end=' ')
@@ -53,9 +62,36 @@ while node != None:
    print(node.data, end=' ')
    node = node.next
 print()
+mystring = stackToReverseString(num_stack)
+
+# Output stack
+# print('Stack after reverse:', end=' ')
+# node = num_stack.list.head
+# while node != None:
+#    print(node.data, end=' ')
+#    node = node.next
+# print()
+
+reverseStringAndRemoveNonAlpha(mystring)
+
+# Output stack
+# print('Stack after reverse:', end=' ')
+# node = num_stack.list.head
+# while node != None:
+#    print(node.data, end=' ')
+#    node = node.next
+# print()
+
+# string=""
+# node = num_stack.list.head
+# while node != None:
+#    string+=node.data
+#    node = node.next
+# print(string)
 
 
 
+"""
 # Pop 11
 popped_item = num_stack.pop()
 print('Popped:', popped_item)
@@ -67,6 +103,7 @@ while node != None:
    print(node.data, end=' ')
    node = node.next
 print('\n')
+
 
 
 # Queue operations
@@ -94,3 +131,4 @@ while node != None:
    print(node.data, end=' ')
    node = node.next
 print()
+"""

@@ -21,6 +21,7 @@ class Stack:
             self.list.remove_after(None)
             return popped_item
         except AttributeError:
+    
             sys.exit("There is no such attribute")
 
     def peek(self):
@@ -31,5 +32,7 @@ class Stack:
             popped_item = self.list.head.data
             return popped_item
         except AttributeError:
+            check = None
+            return check
             sys.exit("There is no such attribute")
             
