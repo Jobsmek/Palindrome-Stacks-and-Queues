@@ -17,16 +17,13 @@ def stackToReverseString(MyStack):
    # Return a string
 
 def reverseStringAndRemoveNonAlpha(stringToReverse):
+   string = ""
    for character in stringToReverse:
-      if character.isalpha() == False:
-         print("g")
-         stringToReverse.replace(character, "")
+      if character.isalpha():
+         string+=character
+    return string
    # Remove stuff like ! space ., using a stack
    # Remove Non Alpha
-
-  
-
-   
       
 
    
