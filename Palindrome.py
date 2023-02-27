@@ -21,7 +21,7 @@ def reverseStringAndRemoveNonAlpha(stringToReverse):
    for character in stringToReverse:
       if character.isalpha():
          string+=character
-    return string
+   return string
    # Remove stuff like ! space ., using a stack
    # Remove Non Alpha
       
