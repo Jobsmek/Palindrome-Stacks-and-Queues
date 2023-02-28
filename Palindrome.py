@@ -1,12 +1,15 @@
+# Written by Job Wosmek and Leul Adane
+# Finished 02/28/2023
+# Purpose: Mental Anguish
+
+# This is a palindrome testing application in Python 
+# using the stack and queue ADTs from the book.
+
 from Stack import Stack
 from Queue import Queue
 
-
 def stackToReverseString(MyStack):
    #find length of string and add it to the stack to reverse it
-   #This needs to use a stack
-
-   
    # toString
    string = ""
    while MyStack.peek() != None:
@@ -17,115 +20,104 @@ def stackToReverseString(MyStack):
    # Return a string
 
 def reverseStringAndRemoveNonAlpha(stringToReverse):
-   string = ""
+   # Add all Alpha characters from stringToReverse to onlyAphasString
+   onlyAphasString = ""
    for character in stringToReverse:
       if character.isalpha():
-         string+=character
-   return string
-   # Remove stuff like ! space ., using a stack
-   # Remove Non Alpha
-      
+         onlyAphasString+=character
+   return onlyAphasString
 
+
+def isPalindrome(stringToTest):
+   # Push stringToTest onto myStack
+   myStack = Stack()
+   for i in stringToTest:
+      myStack.push(i)
+
+   # Push stringToTest onto myQueue
+   myQueue = Queue()
+   for i in stringToTest:
+      myQueue.enqueue(i)
+
+   check = True
    
-   # while stringToReverse.peek() != None:
-   #    character = stringToReverse.pop()
-   #    if (character >= 'A' and character <= 'Z') or (character >= 'a' and character <= 'z'):
-   #       strippedStack.push(character)
+   # Compare the string and queue by popping and dequing
+   while myStack.peek() != None:
+      stackData = myStack.pop()
+      queueData = myQueue.dequeue()
+      if stackData != queueData:
+         # print(stringToTest + " is NOT a palindrome")
+         check = False
+         return check
+         break
+   if check == True:
+      # print(stringToTest + " is a palindrome")
+      return check
    
-   # Reverse the stack
-   # reversedStack = Stack()
-   # reversedStack = stackToReverseString(strippedStack)
-   print(stringToReverse)
-   return stringToReverse
-   # Return a string
+def explorePalindrome(stringToTest):
+   #delete from right side and test for palindrome
+   #convert stringToTest to a list
+   listFromString = []
+   listFromString[:0] = stringToTest
+   newListRight = listFromString.copy()
+   for i in newListRight:
+      newListRight.pop()
+      if len(newListRight) >= 3:
+         # convert newListRight back to a string and call isPlindrome
+         joinedString = ""
+         joinedString=joinedString.join(newListRight)
+         if isPalindrome(joinedString) == True:
+            print("The substring : " + joinedString + " is a palindrome. Tested by removing from right.")
+      else:
+         break 
 
-def isPalindrome(string):
-   #
-   #This needs to use a stack and queue
-   skip
+   #delete from left side and test for palindrome
+   newListLeft = listFromString.copy()
+   i=0
+   while i < len(newListLeft):
+      newListLeft.pop(0)
+      if len(newListLeft) >= 3:
+         # convert newListLeft back to a string and call isPlindrome
+         joinedString = ""
+         joinedString=joinedString.join(newListLeft)
+         if isPalindrome(joinedString) == True:
+            print("The substring : " + joinedString + " is a palindrome. Tested by removing from left.")
+      else:
+         break
+      i+=1 
+
+   #delete from both sides and test for palindrome
+   newListBoth = listFromString.copy()
+   i=0
+   while i < len(newListBoth):
+      newListBoth.pop(0)
+      newListBoth.pop()
+      if len(newListBoth) > 3:
+         # convert newListBoth back to a string and call isPlindrome
+         joinedString = ""
+         joinedString=joinedString.join(newListBoth)
+         if isPalindrome(joinedString) == True:
+            print("The substring :  " + joinedString + " is a palindrome. Tested by removing from both sides.")
+      else:
+         break
+      i+=1 
 
 
-
-# Stack operations
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~   User Input and Function Calling   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# asks for user input
+userInput = input("Enter Here: ")
+# pushes user input into a stack
 num_stack = Stack()
-num_stack.push("Stressed was i ! 123 ere I saw desserts")
-#num_stack.push("stand")
-#num_stack.push("hello")
+num_stack.push(userInput)
 
-# Output stack
-print('Stack after push:', end=' ')
-node = num_stack.list.head
-while node != None:
-   print(node.data, end=' ')
-   node = node.next
-print()
+# reverses the stack and receives a string
 mystring = stackToReverseString(num_stack)
 
-# Output stack
-# print('Stack after reverse:', end=' ')
-# node = num_stack.list.head
-# while node != None:
-#    print(node.data, end=' ')
-#    node = node.next
-# print()
+# pass the reversed string to revmove non-alpha characters.
+onlyAphasString = reverseStringAndRemoveNonAlpha(mystring)
 
-reverseStringAndRemoveNonAlpha(mystring)
-
-# Output stack
-# print('Stack after reverse:', end=' ')
-# node = num_stack.list.head
-# while node != None:
-#    print(node.data, end=' ')
-#    node = node.next
-# print()
-
-# string=""
-# node = num_stack.list.head
-# while node != None:
-#    string+=node.data
-#    node = node.next
-# print(string)
-
-
-
-"""
-# Pop 11
-popped_item = num_stack.pop()
-print('Popped:', popped_item)
-
-# Output final stack
-print('Stack after pop:', end=' ')
-node = num_stack.list.head
-while node != None:
-   print(node.data, end=' ')
-   node = node.next
-print('\n')
-
-
-
-# Queue operations
-num_queue = Queue()
-num_queue.enqueue(17)
-num_queue.enqueue(24)
-num_queue.enqueue(18)
-
-# Output queue
-print('Queue after enqueue:', end=' ')
-node = num_queue.list.head
-while node != None:
-   print(node.data, end=' ')
-   node = node.next
-print()
-
-# Dequeue 17
-dequeued_item = num_queue.dequeue()
-print('Dequeued:', dequeued_item)
-
-# Output final queue
-print('Queue after dequeue:', end=' ')
-node = num_queue.list.head
-while node != None:
-   print(node.data, end=' ')
-   node = node.next
-print()
-"""
+#pass the stripped string to isPalindrome
+if isPalindrome(onlyAphasString) == True:
+   print(onlyAphasString + " is a palindrome")
+   #Check to see if there is a palindrome in the palindrome
+   explorePalindrome(onlyAphasString)
